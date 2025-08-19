@@ -19,14 +19,12 @@ int main(){
     // Densidade Populacional e PIB
     float densidade1, densidade2, pib_per1, pib_per2;
 
-    // Atributos comparativos
+    // Atributos comparativos de operadores relacionais
     float inverso1, inverso2, super_poder1, super_poder2;
 
-    int comparacao_pop, comparacao_pont_tur, comparacao_area_cid, comparacao_pib, comparacao_densidade, comparacao_pib_per, comparacao_super_poder;
 
 
-
-
+    // Registro da Primeira Carta
 
     printf("Digite os dados da primeira carta: \n");
     printf("Estado(letra A a H): ");
@@ -64,7 +62,7 @@ int main(){
     scanf(" %s", cidade2);
 
     printf("\nPopulação da cidade: ");
-    scanf(" %u", &pop2);
+    scanf(" %lu", &pop2);
 
     printf("\nNúmero de pontos turísticos: ");
     scanf(" %d", &pont_tur2);
@@ -75,7 +73,7 @@ int main(){
     printf("\nPIB: ");
     scanf(" %f", &pib2);
 
-    // Calculos Básicos
+    // Calculos Básicos - Aqui é realizado o cálculo de densidade populacional, seu inverso, PIB per capita e super poder da carta.
 
 
 
@@ -91,22 +89,7 @@ int main(){
     super_poder1 = (float) pop1 + pib1 + pib_per1 + pont_tur1 + inverso1;
     super_poder2 = (float) pop2 + pib2 + pib_per2 + pont_tur2 + inverso2;
 
-
-
-    // Comparando atribudos das cartas
-
-    comparacao_pop = pop1 > pop2;
-    comparacao_area_cid = area_cid1 > area_cid2;
-    comparacao_pont_tur = pont_tur1 > pont_tur2;
-
-    comparacao_pib = pib1 > pib2;
-    comparacao_pib_per = pib_per1 > pib_per2;
-
-    comparacao_densidade = densidade1 < densidade2;
-    comparacao_super_poder = super_poder1 > super_poder2;
-
     
-
 
 
     // "Mostrando a cartas"
@@ -114,59 +97,45 @@ int main(){
 
     printf("\n\nPrimeira Carta\n\n");
 
-    printf("Estado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação da cidade: %u\nNúmero de Pontos Turísticos: %d\nÁrea da Cidade: %.2fKm²\nPIB: %.2f Bilhões de Reais\n", estado1, cod1, cidade1, pop1, pont_tur1, area_cid1, pib1);
+    printf("Estado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação da cidade: %lu\nNúmero de Pontos Turísticos: %d\nÁrea da Cidade: %.2fKm²\nPIB: %.2f Bilhões de Reais\n", estado1, cod1, cidade1, pop1, pont_tur1, area_cid1, pib1);
 
     printf("Densidade Populacional: %.2f Hab/Km²\nPIB per Capita: %.2f Reais", densidade1, pib_per1);
 
 
     printf("\n\nSegunda Carta\n\n");
 
-    printf("Estado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação da cidade: %u\nNúmero de Pontos Turísticos: %d\nÁrea da Cidade: %.2fKm²\nPIB: %.2f Bilhões de Reais\n", estado2, cod2, cidade2, pop2, pont_tur2, area_cid2, pib2);
+    printf("Estado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação da cidade: %lu\nNúmero de Pontos Turísticos: %d\nÁrea da Cidade: %.2fKm²\nPIB: %.2f Bilhões de Reais\n", estado2, cod2, cidade2, pop2, pont_tur2, area_cid2, pib2);
 
     printf("Densidade Populacional: %.2f Hab/Km²\nPIB Per Capita: %.2f Reais", densidade2, pib_per2);
 
 
+    
     // Mostrando a Comparação
 
-    printf("\n\n<< Mostrando o Resultado de Comparar as Cartas >>");
-    
-    printf("\n\nA Carta 1 tem a maior população: (%d)", comparacao_pop);
-    printf("\nA Carta 1 tem a maior Área da cidade: (%d)", comparacao_area_cid);
-    printf("\nA Carta 1 tem a maior quantidade de pontos turísticos: (%d)", comparacao_pont_tur);
-
-    printf("\nA Carta 1 tem o maior pib: (%d)", comparacao_pib);
-    printf("\nA Carta 1 tem o maior pib per capita: (%d)", comparacao_pib_per);
-    printf("\nA Carta 1 tem o maior poder: (%d)", comparacao_super_poder);
-
-    printf("\nA Carta1 tem a menor densidade populacional: (%d)", comparacao_densidade);
+    printf("\n\nComparando as cartas %s e %s. Qual tem a maior população?", cod1, cod2);
 
 
-
-    comparacao_pop = pop2 > pop1;
-    comparacao_area_cid = area_cid2 > area_cid1;
-    comparacao_pont_tur = pont_tur2 > pont_tur1;
-
-    comparacao_pib = pib2 > pib1;
-    comparacao_pib_per = pib_per2 > pib_per1;
-
-    comparacao_densidade = densidade2 < densidade1;
-    comparacao_super_poder = super_poder2 > super_poder1;
+    // Comparando atributos das cartas
 
 
+    if (pop1 > pop2){
+        printf("\n\nA carta %s - %s é maior com seus %lu de habitantes", cod1, cidade1, pop1);
+        
+        printf("\nA carta perdedora %s - %s tem %lu de habitantes em comparação", cod2, cidade2, pop2);
 
-printf("\n\nA Carta 2 tem a maior população: (%d)", comparacao_pop);
-printf("\nA Carta 2 tem a maior Área da cidade: (%d)", comparacao_area_cid);
-printf("\nA Carta 2 tem a maior quantidade de pontos turísticos: (%d)", comparacao_pont_tur);
+    }else{
+        printf("\n\nA carta %s - %s é maior com seus %lu de habitantes", cod2, cidade2, pop2);
 
-printf("\nA Carta 2 tem o maior pib: (%d)", comparacao_pib);
-printf("\nA Carta 2 tem o maior pib per capita: (%d)", comparacao_pib_per);
-printf("\nA Carta 2 tem o maior poder: (%d)", comparacao_super_poder);
-
-printf("\nA Carta 2 tem a menor densidade populacional: (%d)", comparacao_densidade);
+        printf("\nA carta perdedora %s - %s tem %lu de habitantes em comparação", cod1, cidade1, pop1);
+    }
 
 
 
 
+
+
+
+    return 0;
 
 
 
