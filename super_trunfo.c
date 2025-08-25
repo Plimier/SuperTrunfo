@@ -37,7 +37,7 @@ int main(){
     scanf(" %s", cidade1);
 
     printf("\nPopulação da cidade: ");
-    scanf(" %u", &pop1); 
+    scanf(" %lu", &pop1); 
 
     printf("\nNúmero de pontos turísticos: ");
     scanf(" %d", &pont_tur1);
@@ -109,25 +109,126 @@ int main(){
     printf("Densidade Populacional: %.2f Hab/Km²\nPIB Per Capita: %.2f Reais", densidade2, pib_per2);
 
 
-    
-    // Mostrando a Comparação
-
-    printf("\n\nComparando as cartas %s e %s. Qual tem a maior população?", cod1, cod2);
 
 
     // Comparando atributos das cartas
+    int entrada_usuario;
+
+    // NOTA: melhorar a estrutura disso no futuro.
+    
+    printf("\n\n<< Hora de realizar a Comparação dos Atributos>>");
+
+    printf("\n\n1. Nome do cidade");
+    printf("\n2. População");
+    printf("\n3. Área");
+    printf("\n4. PIB");
+    printf("\n5. Número de Pontos Turísticos");
+    printf("\n6. Densidade Demográfica");
+
+    printf("\n\nEntre com a Opção: ");
+    scanf("%d", &entrada_usuario);
 
 
-    if (pop1 > pop2){
-        printf("\n\nA carta %s - %s é maior com seus %lu de habitantes", cod1, cidade1, pop1);
-        
-        printf("\nA carta perdedora %s - %s tem %lu de habitantes em comparação", cod2, cidade2, pop2);
+    switch (entrada_usuario){
 
-    }else{
-        printf("\n\nA carta %s - %s é maior com seus %lu de habitantes", cod2, cidade2, pop2);
+        case 1:
+            printf("\n\nComparar as cidades %s VS %s. Esta Opção não realiza comparação, só nomeia as cidades em comparação.", cidade1, cidade2);
+            
+            break;
 
-        printf("\nA carta perdedora %s - %s tem %lu de habitantes em comparação", cod1, cidade1, pop1);
+            
+        case 2:// População
+
+            printf("\n\n1. As cidades em comparação são %s e %s.", cidade1, cidade2);
+            printf("\n2. O atributo usado na comparação é População.");
+            printf("\n3. O valores dos atributos comparados são %s - %lu e %s - %lu", cidade1, pop1, cidade2, pop2);
+
+            if (pop1 > pop2){
+                printf("\n4. A Cidede de %s Venceu!", cidade1);
+
+            }else if(pop1 == pop2){
+                printf("4. \nAs cartas Empataram.");
+
+            }else{
+                printf("4. \nA Cidade %s venceu", cidade2);
+            }
+
+
+            break;
+
+        case 3: // area da cidade
+            printf("\n\n1. As cidades em comparação são %s e %s.", cidade1, cidade2);
+            printf("\n2. O atributo usado na comparação é Área da cidade.");
+            printf("\n3. O valores dos atributos comparados são %s - %.2f e %s - %.2f", cidade1, area_cid1, cidade2, area_cid2);
+
+            if (area_cid1 > area_cid2){
+                printf("\n4. A Cidede de %s Venceu!", cidade1);
+
+            }else if(area_cid1 == area_cid2){
+                printf("\n4. As cartas Empataram.");
+
+            }else{
+                printf("\n4. A Cidade %s venceu", cidade2);
+            }
+
+            break;
+
+        case 4: // PIB
+            printf("\n\n1. As cidades em comparação são %s e %s.", cidade1, cidade2);
+            printf("\n2. O atributo usado na comparação é PIB.");
+            printf("\n3. O valores dos atributos comparados são %s - %.2f e %s - %.2f", cidade1, pib1, cidade2, pib2);
+
+            if (pib1 > pib2){
+                printf("\n4. A Cidede de %s Venceu!", cidade1);
+
+            }else if(pib1 == pib2){
+                printf("\n4. As cartas Empataram.");
+
+            }else{
+                printf("\n4. A Cidade %s venceu", cidade2);
+            }
+
+            break;
+
+        case 5: // Pontos turísticos
+            printf("\n\n1. As cidades em comparação são %s e %s.", cidade1, cidade2);
+            printf("\n2. O atributo usado na comparação é Pontos Turísticos.");
+            printf("\n3. O valores dos atributos comparados são %s - %d e %s - %d", cidade1, pont_tur1, cidade2, pont_tur2);
+
+            if (pont_tur1 > pont_tur2){
+                printf("\n4. A Cidede de %s Venceu!", cidade1);
+
+            }else if(pont_tur1 == pont_tur2){
+                printf("\n4. As cartas Empataram.");
+
+            }else{
+                printf("\n4. A Cidade %s venceu", cidade2);
+            }
+
+            break;
+
+        case 6: // Densidade Demográfica
+            printf("\n\n1. As cidades em comparação são %s e %s.", cidade1, cidade2);
+            printf("\n2. O atributo usado na comparação é Densidade Demográfica.");
+            printf("\n3. O valores dos atributos comparados são %s - %.3f e %s - %.3f", cidade1, densidade1, cidade2, densidade2);
+
+            if (densidade1 < densidade2){
+                printf("\n4. A Cidede de %s Venceu!", cidade1);
+
+            }else if(densidade1 == densidade2){
+                printf("\n4. As cartas Empataram.");
+
+            }else{
+                printf("\n4. A Cidade %s venceu", cidade2);
+            }
+
+            break;
+
+        default:
+        printf("\n\nEntrada Inválida");
+
     }
+
 
 
 
