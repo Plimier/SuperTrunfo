@@ -139,7 +139,7 @@ int main(){
     scanf("%d", &entrada_usuario1);
 
     printf("\n\nDigite o segundo valor a ser comparado: ");
-    scanf("%d", entrada_usuario2);
+    scanf("%d", &entrada_usuario2);
 
     entrada_usuario2 == entrada_usuario1 ? entrada_usuario1 = 0, entrada_usuario2 = 0, printf("\n\nvalor é o mesmo.") : printf("\n\nProcessando...");
 
@@ -227,7 +227,7 @@ int main(){
                 resultado1 = 0;
             }
 
-            printf("\n\nO primeiro atributo em comparação é %.", pontos_turisticos_n);
+            printf("\n\nO primeiro atributo em comparação é %s.", pontos_turisticos_n);
             printf("\nO valor do atributo é %d - carta 1 | %d - carta 2", pont_tur1, pont_tur2);
 
             soma_carta1 = (float) pont_tur1;
@@ -247,7 +247,7 @@ int main(){
                 resultado1 = 0;
             }
 
-            printf("\n\nO primeiro atributo em comparação é %.", densidade_n);
+            printf("\n\nO primeiro atributo em comparação é %s.", densidade_n);
             printf("\nO valor do atributo é %.3f - carta 1 | %.3f - carta 2", densidade1, densidade2);
 
             soma_carta1 = (float) densidade1;
@@ -365,7 +365,7 @@ int main(){
                 resultado2 = 0;
             }
 
-            printf("\n\nO segundo atributo em comparação é %.", pontos_turisticos_n);
+            printf("\n\nO segundo atributo em comparação é %s.", pontos_turisticos_n);
             printf("\nO valor do atributo é %d - carta 1 | %d - carta 2", pont_tur1, pont_tur2);
 
             soma_carta1 += (float) pont_tur1;
@@ -385,7 +385,7 @@ int main(){
                 resultado2 = 0;
             }
 
-            printf("\n\nO segundo atributo em comparação é %.", densidade_n);
+            printf("\n\nO segundo atributo em comparação é %s.", densidade_n);
             printf("\nO valor do atributo é %.3f - carta 1 | %.3f - carta 2", densidade1, densidade2);
 
             soma_carta1 += (float) densidade1;
@@ -416,13 +416,13 @@ int main(){
     printf("\n\n<< Agora vamos definir qual venceu baseado na soma dos atributos comparados >>");
 
     if (soma_carta1 > soma_carta2){
-        printf("\nCarta 1 - cidade %s Venceu o jogo com %.2f em comparação com a perdedora %.2f", cidade1, soma_carta1, soma_carta2);
+        printf("\n\nCarta 1 - cidade %s Venceu o jogo com %.2f em comparação com a perdedora %.2f\n", cidade1, soma_carta1, soma_carta2);
 
     }else if (soma_carta1 == soma_carta2){
-        printf("\nhouve um empate. valor de ambas deu %.2f", soma_carta1);
+        printf("\n\nhouve um empate. valor de ambas deu %.2f\n", soma_carta1);
 
     }else{
-        printf("\nCarta 2 - cidade %s venceu o jogo com %.2f em comparação com a perdedora %.2f", cidade2, soma_carta2, soma_carta1);
+        printf("\n\nCarta 2 - cidade %s venceu o jogo com %.2f em comparação com a perdedora %.2f\n", cidade2, soma_carta2, soma_carta1);
     }
 
 
