@@ -112,7 +112,17 @@ int main(){
 
 
     // Comparando atributos das cartas
-    int entrada_usuario;
+
+    float soma_carta1, soma_carta2;
+
+    int entrada_usuario1, entrada_usuario2;
+    unsigned long int soma;
+
+    int resultado1, resultado2; // variável é usada para exibir o resultado de vitória ou empate.
+
+    char populacao_n[50] = "População", area_n[50] = "Área", pib_n[50] = "PIB", pontos_turisticos_n[50] = "Pontos_Turísticos", densidade_n[50] = "Densidade_Demográfica" ;
+
+
 
     // NOTA: melhorar a estrutura disso no futuro.
     
@@ -126,108 +136,298 @@ int main(){
     printf("\n6. Densidade Demográfica");
 
     printf("\n\nEntre com a Opção: ");
-    scanf("%d", &entrada_usuario);
+    scanf("%d", &entrada_usuario1);
+
+    printf("\n\nDigite o segundo valor a ser comparado: ");
+    scanf("%d", entrada_usuario2);
+
+    entrada_usuario2 == entrada_usuario1 ? entrada_usuario1 = 0, entrada_usuario2 = 0, printf("\n\nvalor é o mesmo.") : printf("\n\nProcessando...");
 
 
-    switch (entrada_usuario){
 
+    switch(entrada_usuario1){
         case 1:
-            printf("\n\nComparar as cidades %s VS %s. Esta Opção não realiza comparação, só nomeia as cidades em comparação.", cidade1, cidade2);
+            printf("\n\nAs cidades em competição são %s VS %s.", cidade1, cidade2);
+
+
             
             break;
 
-            
-        case 2:// População
-
-            printf("\n\n1. As cidades em comparação são %s e %s.", cidade1, cidade2);
-            printf("\n2. O atributo usado na comparação é População.");
-            printf("\n3. O valores dos atributos comparados são %s - %lu e %s - %lu", cidade1, pop1, cidade2, pop2);
+        case 2:
 
             if (pop1 > pop2){
-                printf("\n4. A Cidede de %s Venceu!", cidade1);
+                resultado1 = 1;
 
-            }else if(pop1 == pop2){
-                printf("4. \nAs cartas Empataram.");
+            }else if (pop1 == pop2){
+                resultado1 = 2;
 
             }else{
-                printf("4. \nA Cidade %s venceu", cidade2);
+                resultado1 = 0;
             }
 
+            printf("\n\nO primeiro atributo em comparação é %s.", populacao_n);
+            printf("\nO valor do atributo é %lu - carta 1 | %lu - carta 2", pop1, pop2);
+            
+            soma_carta1 = (float) pop1;
+            soma_carta2 = (float) pop2;
 
             break;
 
-        case 3: // area da cidade
-            printf("\n\n1. As cidades em comparação são %s e %s.", cidade1, cidade2);
-            printf("\n2. O atributo usado na comparação é Área da cidade.");
-            printf("\n3. O valores dos atributos comparados são %s - %.2f e %s - %.2f", cidade1, area_cid1, cidade2, area_cid2);
+        case 3:
 
             if (area_cid1 > area_cid2){
-                printf("\n4. A Cidede de %s Venceu!", cidade1);
+                resultado1 = 1;
 
-            }else if(area_cid1 == area_cid2){
-                printf("\n4. As cartas Empataram.");
+            }else if (area_cid1 == area_cid2){
+                resultado1 = 2;
 
             }else{
-                printf("\n4. A Cidade %s venceu", cidade2);
+                resultado1 = 0;
             }
+
+            
+            printf("\n\nO primeiro atributo em comparação é %s.", area_n);
+            printf("\nO valor do atributo é %.2f - carta 1 | %.2f - carta 2", area_cid1, area_cid2);
+
+            soma_carta1 = (float) area_cid1;
+            soma_carta2 = (float) area_cid2;
+            
 
             break;
 
-        case 4: // PIB
-            printf("\n\n1. As cidades em comparação são %s e %s.", cidade1, cidade2);
-            printf("\n2. O atributo usado na comparação é PIB.");
-            printf("\n3. O valores dos atributos comparados são %s - %.2f e %s - %.2f", cidade1, pib1, cidade2, pib2);
+        case 4:
 
             if (pib1 > pib2){
-                printf("\n4. A Cidede de %s Venceu!", cidade1);
+                resultado1 = 1;
 
-            }else if(pib1 == pib2){
-                printf("\n4. As cartas Empataram.");
+            }else if (pib1 == pib2){
+                resultado1 = 2;
 
             }else{
-                printf("\n4. A Cidade %s venceu", cidade2);
+                resultado1 = 0;
             }
+
+            printf("\n\nO primeiro atributo em comparação é %s.", pib_n);
+            printf("\nO valor do atributo é %.2f - carta 1 | %.2f - carta 2", pib1, pib2);
+
+            soma_carta1 = (float) pib1;
+            soma_carta2 = (float) pib2;
 
             break;
 
-        case 5: // Pontos turísticos
-            printf("\n\n1. As cidades em comparação são %s e %s.", cidade1, cidade2);
-            printf("\n2. O atributo usado na comparação é Pontos Turísticos.");
-            printf("\n3. O valores dos atributos comparados são %s - %d e %s - %d", cidade1, pont_tur1, cidade2, pont_tur2);
+        case 5:
 
             if (pont_tur1 > pont_tur2){
-                printf("\n4. A Cidede de %s Venceu!", cidade1);
+                resultado1 = 1;
 
-            }else if(pont_tur1 == pont_tur2){
-                printf("\n4. As cartas Empataram.");
+            }else if (pont_tur1 == pont_tur2){
+                resultado1 = 2;
 
             }else{
-                printf("\n4. A Cidade %s venceu", cidade2);
+                resultado1 = 0;
             }
+
+            printf("\n\nO primeiro atributo em comparação é %.", pontos_turisticos_n);
+            printf("\nO valor do atributo é %d - carta 1 | %d - carta 2", pont_tur1, pont_tur2);
+
+            soma_carta1 = (float) pont_tur1;
+            soma_carta2 = (float) pont_tur2;
 
             break;
 
-        case 6: // Densidade Demográfica
-            printf("\n\n1. As cidades em comparação são %s e %s.", cidade1, cidade2);
-            printf("\n2. O atributo usado na comparação é Densidade Demográfica.");
-            printf("\n3. O valores dos atributos comparados são %s - %.3f e %s - %.3f", cidade1, densidade1, cidade2, densidade2);
+        case 6:
 
             if (densidade1 < densidade2){
-                printf("\n4. A Cidede de %s Venceu!", cidade1);
+                resultado1 = 1;
 
-            }else if(densidade1 == densidade2){
-                printf("\n4. As cartas Empataram.");
+            }else if (densidade1 == densidade2){
+                resultado1 = 2;
 
             }else{
-                printf("\n4. A Cidade %s venceu", cidade2);
+                resultado1 = 0;
             }
+
+            printf("\n\nO primeiro atributo em comparação é %.", densidade_n);
+            printf("\nO valor do atributo é %.3f - carta 1 | %.3f - carta 2", densidade1, densidade2);
+
+            soma_carta1 = (float) densidade1;
+            soma_carta2 = (float) densidade2;
 
             break;
 
+
         default:
-        printf("\n\nEntrada Inválida");
+            printf("\n\nO valor digitado está errado.");
+    }
+
+    printf("\nAs cidades desafiantes são %s Vs %s", cidade1, cidade2);
+
+    printf("\n< Primeira comparação >");
+
+    // qual carta venceu primeira comparação
+
+
+    if (resultado1 == 1){
+        printf("\nA carta %s venceu", cidade1);
+        
+    }else if(resultado1 == 2){
+        printf("\nHouve um empate");
+
+    }else{
+        printf("\nA carta %s Venceu", cidade2);
 
     }
+
+
+
+    // Segunda etapa de verificação.
+
+
+    switch(entrada_usuario2){
+        case 1:
+            printf("\n\nAs cidades em competição são %s VS %s.", cidade1, cidade2);
+
+
+            
+            break;
+
+        case 2:
+
+            if (pop1 > pop2){
+                resultado2 = 1;
+
+            }else if (pop1 == pop2){
+                resultado2 = 2;
+
+            }else{
+                resultado2 = 0;
+            }
+
+            printf("\n\nO segundo atributo em comparação é %s.", populacao_n);
+            printf("\nO valor do atributo é %lu - carta 1 | %lu - carta 2", pop1, pop2);
+
+            soma_carta1 += (float) pop1;
+            soma_carta2 += (float) pop2;
+            
+            break;
+
+        case 3:
+
+            if (area_cid1 > area_cid2){
+                resultado2 = 1;
+
+            }else if (area_cid1 == area_cid2){
+                resultado2 = 2;
+
+            }else{
+                resultado2 = 0;
+            }
+
+            
+            printf("\n\nO segundo atributo em comparação é %s.", area_n);
+            printf("\nO valor do atributo é %.2f - carta 1 | %.2f - carta 2", area_cid1, area_cid2);
+
+            soma_carta1 += (float) area_cid1;
+            soma_carta2 += (float) area_cid2;
+            
+
+            break;
+
+        case 4:
+
+            if (pib1 > pib2){
+                resultado2 = 1;
+
+            }else if (pib1 == pib2){
+                resultado2 = 2;
+
+            }else{
+                resultado2 = 0;
+            }
+
+            printf("\n\nO segundo atributo em comparação é %s.", pib_n);
+            printf("\nO valor do atributo é %.2f - carta 1 | %.2f - carta 2", pib1, pib2);
+
+            soma_carta1 += (float) pib1;
+            soma_carta2 += (float) pib2;
+
+            break;
+
+        case 5:
+
+            if (pont_tur1 > pont_tur2){
+                resultado2 = 1;
+
+            }else if (pont_tur1 == pont_tur2){
+                resultado2 = 2;
+
+            }else{
+                resultado2 = 0;
+            }
+
+            printf("\n\nO segundo atributo em comparação é %.", pontos_turisticos_n);
+            printf("\nO valor do atributo é %d - carta 1 | %d - carta 2", pont_tur1, pont_tur2);
+
+            soma_carta1 += (float) pont_tur1;
+            soma_carta2 += (float) pont_tur2;
+
+            break;
+
+        case 6:
+
+            if (densidade1 < densidade2){
+                resultado2 = 1;
+
+            }else if (densidade1 == densidade2){
+                resultado2 = 2;
+
+            }else{
+                resultado2 = 0;
+            }
+
+            printf("\n\nO segundo atributo em comparação é %.", densidade_n);
+            printf("\nO valor do atributo é %.3f - carta 1 | %.3f - carta 2", densidade1, densidade2);
+
+            soma_carta1 += (float) densidade1;
+            soma_carta2 += (float) densidade2;
+
+            break;
+
+
+        default:
+            printf("\n\nO valor digitado está errado.");
+    }
+
+    printf("\n< A segunda comparação >");
+
+
+    if (resultado2 == 1){
+        printf("\nA carta %s venceu", cidade1);
+        
+    }else if(resultado2 == 2){
+        printf("\nHouve um empate");
+
+    }else{
+        printf("\nA carta %s Venceu", cidade2);
+
+    }
+
+
+    printf("\n\n<< Agora vamos definir qual venceu baseado na soma dos atributos comparados >>");
+
+    if (soma_carta1 > soma_carta2){
+        printf("\nCarta 1 - cidade %s Venceu o jogo com %.2f em comparação com a perdedora %.2f", cidade1, soma_carta1, soma_carta2);
+
+    }else if (soma_carta1 == soma_carta2){
+        printf("\nhouve um empate. valor de ambas deu %.2f", soma_carta1);
+
+    }else{
+        printf("\nCarta 2 - cidade %s venceu o jogo com %.2f em comparação com a perdedora %.2f", cidade2, soma_carta2, soma_carta1);
+    }
+
+
+
+
 
 
 
